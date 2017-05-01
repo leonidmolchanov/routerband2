@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>Routerband</title>
+    
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" class="switch_style" href="styles/skin.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="styles/ionicons.min.css">
+  <link href="styles/sweetalert.css" rel="stylesheet"/>    
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+ <script type="text/javascript" src="scripts/post.js"></script>
+    <script src="scripts/sweetalert.js"></script>
+</head>
+
+<body>
+    <div id="loading" class="loading_center"></div>
+<div id="page-transitions">
+    
+<div class="page-preloader page-preloader-dark">
+    <div class="spinner"></div>
+</div>
+    
+<div id="header">
+    <a href="#" class="open-left-sidebar"><i class="ion-navicon"></i></a>
+    <a href="http://routerband.ru" class="page-logo"></a>
+    <a href="#" class="open-right-sidebar"><i class="ion-ios-more"></i></a>
+</div>
+
+    
+<div id="sidebar-tap-close"></div>
+
+<div id="sidebar-left">
+    <div class="sidebar-scroll">
+        <a href="javascript:windows('action')" class="sidebar-logo sidebar-item"></a><a href="#" class="sidebar-item sidebar-close"><i class="ion-ios-close-empty"></i></a>
+        <a href="#" class="sidebar-item sidebar-close"><i class="ion-ios-close-empty"></i></a>
+        <div class="sidebar-item sidebar-divider"></div>
+        <div class="sidebar-menu">            
+            <a class="sidebar-item" data-sub="sub-1" href="#"><i class="ion-ios-home-outline"></i>Профиль</a>
+            <div id="sub-1" class="submenu">
+                <a class="sidebar-item"  href="javascript:windows('profile-information')">Информация</a>
+                <a class="sidebar-item" href="javascript:windows('profile-change')">Изменения</a>
+                <a class="sidebar-item" href="javascript:windows('profile-sittings')">Настройки</a>
+            </div>
+
+            <a class="sidebar-item" data-sub="sub-2" href="#"><i class="ion-ios-gear-outline"></i>Роутер</a>
+            <div id="sub-2" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('router-information')">Информация</a>
+                <a class="sidebar-item" href="javascript:windows('router-select')">Выбор</a>
+                <a class="sidebar-item" href="javascript:windows('router-secret')">Доступ</a>
+                <a class="sidebar-item" href="javascript:windows('router-add')">Добавление</a>
+                <a class="sidebar-item" href="javascript:windows('router-name')">Имена</a>
+                <a class="sidebar-item" href="javascript:windows('router-del')">Удаление</a>
+            </div>                       
+            
+            <a class="sidebar-item" data-sub="sub-3" href="#"><i class="ion-ios-gear-outline"></i>Wi-Fi</a>
+            <div id="sub-3" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('wifi-information')">Информация</a>
+                <a class="sidebar-item" href="javascript:windows('wifi-clients')">Подключения</a>
+                 <!-- <a class="sidebar-item" href="javascript:windows('wifi-scaner-ssid')">Сканер сетей</a>
+                <a class="sidebar-item" href="javascript:windows('wifi-scaner-fre')">Сканер частот</a> -->
+                    <a class="sidebar-item" href="javascript:windows('wifi-change-ssid')">Сменить имя wi-fi</a>
+                <a class="sidebar-item" href="javascript:windows('wifi-change-psw')">Сменить пароль wi-fi</a>
+            </div>
+            
+            
+            <a class="sidebar-item" data-sub="sub-4" href="#"><i class="ion-ios-analytics-outline"></i>Диагностика</a>
+            <div id="sub-4" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('diagnostic-all')">Общая</a>
+                <a class="sidebar-item" href="javascript:windows('diagnostic-ping')">Ping</a>
+                <a class="sidebar-item" href="javascript:windows('diagnostic-trace')">Трассировка</a>
+                <a class="sidebar-item" href="javascript:windows('diagnostic-speedtest')">Speed test</a>
+            </div>
+            
+            <a class="sidebar-item" data-sub="sub-5" href="#"><i class="ion-ios-copy-outline"></i>Безопасность</a>
+            <div id="sub-5" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('security-service')">Сервисы</a>
+                <a class="sidebar-item" href="javascript:windows('security-rules')">Список правил</a>
+                <a class="sidebar-item" href="javascript:windows('security-block')">Блокировка</a>
+             </div>
+            
+            <a class="sidebar-item" data-sub="sub-6" href="#"><i class="ion-ios-gear-outline"></i>Настройки</a>
+            <div id="sub-6" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('sitting-reboot')">Перезагрузка</a>
+            </div>    
+            <a class="sidebar-item" href="javascript:windows('news')"><i class="ion-ios-compose-outline"></i>Новости<i class="ion-record"></i></a>
+            <a class="sidebar-item" href="javascript:windows('instructions')"><i class="ion-ios-compose-outline"></i>Инструкции<i class="ion-record"></i></a><a class="sidebar-item" href="javascript:windows('video')"><i class="ion-ios-videocam-outline"></i>Видео<i class="ion-record"></i></a>
+            <a class="sidebar-item" href="javascript:windows('callback')"><i class="ion-ios-email-outline"></i>Обратная связь<i class="ion-record"></i></a>
+        </div>
+        <div class="sidebar-item sidebar-divider"></div>
+        <div class="sidebar-item sidebar-copyright">
+            <em>Copyright <span class="copyright-year"></span>. Все права защищены.</em>
+        </div>
+        <div class="sidebar-item sidebar-divider"></div>
+    </div>
+</div>
+    
+<div id="sidebar-right">
+    <div class="sidebar-scroll">
+        <div class="sidebar-small-menu">
+            <a href="https://vk.com/club137316622" class="sidebar-item"><i class="ion-social-facebook-outline"></i><em>Vkontakte</em></a>
+            <a href="#" class="sidebar-item"><i class="ion-social-youtube-outline"></i><em>YouTube</em></a>
+             <a href="#" onClick="logout()" class="sidebar-item"><i></i><em>Выход</em></a>
+            </div>
+    </div>
+</div> 
+
+    
+    
+<div id="page-content" class="header-clear">
+   
+   <div class="content">
+        <div class="one-half-responsive">
+            <div class="heading-text">
+                <h4 class="animate-fade">Обратная связь!</h4>
+                <div class="heading-line-1"></div>
+                <i style="margin-top:3px;" class="ion-email"></i>
+                <div class="heading-line-2"></div>
+                <p class="animate-fade">
+                   Отправте нам сообщение если у Вас возникли проблемы или вопросы по использованию системы!
+                </p>
+            </div>
+            <div class="container no-bottom">
+                <div class="contact-form no-bottom"> 
+                    <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+                        <div class="notification-medium bg-green-light">
+                            <h1>Message Sent!</h1>
+                            <p>
+                                We'll be back shortly!
+                            </p>
+                            <a href="#" class="hide-notification"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+
+                    
+                                       
+                              
+                            <div class="formFieldWrap">
+                                <label class="field-title contactNameField" for="contactNameField">Имя:</label>
+                                <input type="text" name="contactNameField" value="" class="contactField requiredField" id="contactNameField"/>
+                            </div>
+                            
+                            <div class="formTextareaWrap">
+                                <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Сообщение: </label>
+                                <textarea name="contactMessageTextarea" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
+                            </div>
+                            <div class="formSubmitButtonErrorsWrap contactFormButton">
+                                <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" onClick="formaction(contactNameField.value, contactMessageTextarea.value)" value="Отправить" data-formId="contactForm"/>
+                            </div>
+                       
+                    </form>       
+                </div>
+            </div>
+        </div>
+        <div class="decoration hide-if-responsive"></div>
+        <div class="one-half-responsive contact-information last-column">
+            <div class="container no-bottom">
+              
+                <p class="contact-information">
+                    <strong>Контактная информация:</strong><br>
+                    <a href="tel: +7-964-611-11-60" class="contact-call"><i class="ion-ios-telephone"></i>+7-964-611-11-60</a>
+                    <a href="sms: +7-964-611-11-60" class="contact-text"><i class="ion-ios-chatbubble"></i>+7-964-611-11-60</a>
+                    <a href="mailto:info@routerband.ru" class="contact-mail"><i class="ion-email"></i>info@routerband.ru</a>
+                </p>
+            </div>            
+        </div>
+    </div>
+
+    <div class="decoration decoration-margins"></div>
+
+  
+</div>
+    
+<script type="text/javascript">
+    
+    function formaction(name, message)
+    {
+         if(name.length==0)
+             {
+              msg("Введите имя!")   
+             }
+        else
+            {
+                if(message.length==0)
+             {
+              msg("Введите сообщение!")   
+             }
+        else{        
+
+            
+            
+            
+              <!-- Аякс запрос -->
+    $.ajax ({
+    	url:  select,
+    	type: "POST",
+        timeout: errortime,
+    	data: ({type: "callbackform",
+    	metod: name,
+        metod2: message}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+        error: function(jqXHR, textStatus){
+        if(textStatus === 'timeout')
+        {     
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+           ajaxerror()
+        }
+    },
+    	success: function(data)
+    	{
+    	    string=data;
+    <!-- Чистим ответ json -->
+          string=string.trim();
+           <!-- Провкряем сессию -->
+          if(string == "no session")
+          { 
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+          msg3("Необходима авторизация");
+        }
+            <!-- Парсим json -->
+          string = JSON.parse(string);        
+
+        <!-- Набиваем тело ответа -->
+             document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML ="";
+       msg("Сообщение отправлено!")
+        }
+    });
+           
+            
+    <!-- Предварительная загрузка -->
+   function funcBefore () {
+        	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
+      document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
+        }  
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        }
+    }
+    </script>
+
+</body>

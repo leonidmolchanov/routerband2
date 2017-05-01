@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>Routerband</title>
+    
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" class="switch_style" href="styles/skin.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="styles/ionicons.min.css">
+     <link href="styles/sweetalert.css" rel="stylesheet"/>
+    <script type="text/javascript">
+$(document).bind("mobileinit", function() {
+    $.support.cors = true;
+    $.mobile.allowCrossDomainPages = true;
+});
+</script>
+
+
+      <script src="script/maskedinput.js"></script>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+<script src="scripts/sweetalert.js"></script>
+
+   
+       
+</head>
+
+<body>
+       <script type="text/javascript">
+        function msg(text_msg){
+swal({
+      title: 'Сообщение',
+      //background: '#f00',
+      text: text_msg});
+        }
+          
+    </script>
+<div id="page-transitions">
+    
+<div class="page-preloader page-preloader-dark">
+    <div class="spinner"></div>
+</div>
+    
+
+<div id="header">
+   
+    <a href="#" onClick="back()" class="page-logo"></a>
+ 
+</div>
+    
+<div id="sidebar-tap-close"></div>
+
+
+ 
+
+<div id="page-content">
+    <div class="page-fullscreen bg-4">
+        <div class="page-fullscreen-content">
+            <div class="pageapp-login">
+              
+                  <p align="center"> <span id="summa"></span></p>
+  <span id="test"></span>
+                <div class="pageapp-login-input">
+                    <i class="login-icon ion-person"></i>
+                   <input type="text" name="login" id="login"  placeholder="Логин" align="center" />
+                </div>  
+                </div>                
+                <div class="pageapp-login-input full-bottom">
+                    <i class="login-icon ion-locked"></i>
+                    <input type="password" name="password" id="password" placeholder="Пароль" align="center" />
+                </div>
+
+                <div class="pageapp-login-input">
+                    <i class="login-icon ion-person"></i>
+                <input type="text" name="lastname" id="lastname" placeholder="Имя" align="center" />
+                </div> 
+                <div class="pageapp-login-input">
+                    <i class="login-icon ion-at"></i>
+                    <input type="text" placeholder="Email адрес" name="email" id="email">
+                </div>                     
+                <div class="pageapp-login-input">
+                    <i class="login-icon ion-person"></i>
+                  <form id="form1">
+<input type="text" id="zipCode" onkeyup="javascript:mask('zipCode', '+7(000)000-00-00', event);" value="" placeholder="Номер телефона">
+    </form>
+<script type="text/javascript">
+        jQuery(function($){
+   $("#telnumber").mask("(999) 999-9999");
+   });
+       </script>  
+                  
+
+            
+             <div class='heading-block'>
+             <input type="button" class='button-ghost button-center-large button-bold button-round animate-bottom' id="button_enter" value="Регистрация" align="center" onclick="summa()" />
+            </div>  
+                </div>
+               
+               
+            </div>
+        </div>
+        
+        <div class="overlay dark-overlay"></div>
+    </div> 
+
+    
+</div>
+        
+       <script type="text/javascript">
+
+
+  function summa() {
+    var login = document.getElementById("login").value; // Считываем значение a
+    var password = document.getElementById("password").value; // Считываем значение 
+    var email = document.getElementById("email").value; // Считываем значение 
+   var telnumber = document.getElementById("zipCode").value; // Считываем значение
+           var lastname = document.getElementById("lastname").value; // Считываем значение 
+    select="http://app.routerband.ru/register.php"
+    
+    if (login =="")
+    {
+      msg("Заполните поле Логин")
+   
+    }
+        else if (password =="")
+    {
+        msg("Заполните поле Пароль")
+    }
+      
+
+            else if (email =="")
+    {
+               msg("Заполните поле Email")
+    }
+            else if (telnumber =="")
+    {
+        msg("Заполните поле Телефонный номер")
+    }
+      else if (telnumber.length< 16)
+    {
+        msg("Телефонный номер заполнен неверно")
+    }
+  
+else {
+    
+    
+     $.ajax ({
+    	url:  select,
+         timeout: "60000",
+    	type: "POST",
+    	data: ({login: login,
+    	password: password,
+    	email: email,
+    	telnumber: telnumber,
+    	lastname: lastname}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+         error: function(jqXHR, textStatus){
+        if(textStatus === 'timeout')
+        {     
+    document.getElementById("summa").innerHTML =""; 
+       msg("Ошибка подключения");   
+        }
+    },
+    	success: function(data)
+    	{
+    	    string=data;
+   
+   //Главное тело ответа!
+          string=string.trim();
+          string2=string;
+string = JSON.parse(string); 
+if(string.err=="email")
+{
+    msg("Не корректно введен email адрес!")
+}
+else if(string.err=="duble")
+{
+        msg("Логин уже существует!")
+}
+else if(string.err=="no")
+{
+if(string.request.errors==undefined)
+{
+
+swal({
+  title: 'Поздравляем!',
+  text: "Регистрация прошла успешно, необходима авторизация!",
+  confirmButtonText: 'ОК'
+}).then(function () {
+    hrefindex="index.html";
+       
+  window.location=hrefindex;
+})
+
+         
+}
+else
+{
+        msg("Такой логин уже существует!")
+ }
+ }
+            
+            document.getElementById("summa").innerHTML="";
+ }
+    
+  });
+  
+    function funcBefore () {
+           	document.getElementById("summa").innerHTML="<img align='center' src='img/loading.gif' width='35%' height='35%'>";
+        }
+ 
+
+ 
+        
+}
+}
+   function back () {
+       register="index.html";
+       
+  window.location=register;
+        }
+</script> 
+   <script type="text/javascript">
+  function mask(inputName, mask, evt) {
+    try {
+      var text = document.getElementById(inputName);
+      var value = text.value;
+      // If user pressed DEL or BACK SPACE, clean the value
+      try {
+        var e = (evt.which) ? evt.which : event.keyCode;
+        if ( e == 46 || e == 8 ) {
+          text.value = "";
+          return;
+        }
+      } catch (e1) {}
+ 
+      var literalPattern=/[0\*]/;
+      var numberPattern=/[0-9]/;
+      var newValue = "";
+      for (var vId = 0, mId = 0 ; mId < mask.length ; ) {
+        if (mId >= value.length)
+          break;
+        // Number expected but got a different value, store only the valid portion
+        if (mask[mId] == '0' && value[vId].match(numberPattern) == null) {
+          break;
+        }
+        // Found a literal
+        while (mask[mId].match(literalPattern) == null) {
+          if (value[vId] == mask[mId])
+            break;
+        newValue += mask[mId++];
+      }
+      newValue += value[vId++];
+      mId++;
+    }
+    text.value = newValue;
+  } catch(e) {}
+}
+</script>   
+</body>

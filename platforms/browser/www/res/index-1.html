@@ -1,0 +1,85 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>RouterBand</title>
+    </head>
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
+    <script type="text/javascript">
+$(document).bind("mobileinit", function() {
+    $.support.cors = true;
+    $.mobile.allowCrossDomainPages = true;
+});
+</script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+  function summa() {
+    var a = document.getElementById("a").value; // Считываем значение a
+    var b = document.getElementById("b").value; // Считываем значение 
+    select="http://routerband.ru/ios/login.php"
+     $.ajax ({
+    	url:  select,
+    	type: "POST",
+    	data: ({a: a,
+    	b: b}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+    	success: function(data)
+    	{
+    	    string=data;
+   
+   //Главное тело ответа!
+          string=string.trim();
+          
+string = JSON.parse(string); 
+action= "action.html?per=" + string.phpsesid + "&status=" + string.status + "" ;
+if(string.log=="access"){
+window.location=action;
+}
+else if(string.log=="err1")
+{
+ document.getElementById("summa").innerHTML = "<font color='red'>Логин или пароль не верны! </font>";
+ }
+ else if(string.log=="err2")
+{
+ document.getElementById("summa").innerHTML = "<font color='red'>Логин или пароль не введены!</font>";
+ }
+    }
+  });
+  
+    function funcBefore () {
+           	document.getElementById("summa").innerHTML="<img align='center' src='img/loading.gif' width='15%' height='15%'>";
+        }
+}
+function register()
+{
+    register="register.html";
+  window.location=register;  
+}
+</script>
+<table border ="1"width="100%" height="100%">
+<tr>
+<td id="td_login" valign="top" align="center">
+<div>
+<img src="img/logo.png" width="200" height="200" align="center">
+<br>
+Логин:
+<br>
+<input type="text" name="a" id="a"  align="center" />
+  <br />
+  Пароль:
+    <br />
+<input type="password" name="b" id="b"  align="center" />
+  <br />
+  <br>
+  <input type="button" value="Войти" align="center" onclick="summa()" />
+  <p> <span id="summa"></span></p>
+  <span id="test"></span></p>
+  <br>
+<input type="button" value="Регистрация" align="center" onclick="register()" />
+  <br />
+</div>
+</td>
+</tr>
+</table>
+    </body>
+</html>

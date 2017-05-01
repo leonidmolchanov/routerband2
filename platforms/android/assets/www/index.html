@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>Routerband</title>
+    
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" class="switch_style" href="styles/skin.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="styles/ionicons.min.css">
+    
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+    
+ <!--<link rel="stylesheet" href="css/index.css" type="text/css"/>
+ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="scripts/ssh/angular-ssh.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <link href="styles/sweetalert.css" rel="stylesheet"/>
+    <script src="scripts/sweetalert.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        
+        
+
+    // Wait for device API libraries to load
+    //
+         document.addEventListener("deviceready", function() {
+            
+        }, false );
+    document.addEventListener("deviceready", onDeviceReady, false);
+        
+    // device APIs are available
+        clear_sql=false;
+        c=false;
+    function onDeviceReady() {
+        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        db.transaction(populateDB, errorCB, successCB);
+        
+       
+    
+        window.sshClient.sshOpenSession(function(success){},function(error){},"192.168.88.1","admin","fender1987",50,50);
+    
+       window.plugins.PushbotsPlugin.initialize("5884b7214a9efaa84c8b4567", {"android":{"sender_id":"396310970315"}});
+    
+        
+ window.plugins.PushbotsPlugin.on("registered", function(token){
+	console.log(token);
+});
+        this.receivedEvent('deviceready');
+        
+                
+    }
+
+    // Populate the database
+    //
+    localStorage.setItem("a", input);
+    function populateDB(tx) {
+
+    }
+ // Query the database
+        function queryDB(tx) {
+
+        }
+        // Query the success callback
+        function querySuccess(tx, results) {
+
+        }
+    // Transaction error callback
+    //
+    function errorCB(tx, err) {
+       onDeviceReady()
+    }
+
+    // Transaction success callback
+    //
+    function successCB() {
+    }
+
+// Кнопка регистрации
+function register()
+{
+    register="register.html";
+  window.location=register;
+}
+
+       //Функция сохранения пароля
+        function save()
+        {
+             var a = document.getElementById("a").value;//Читаем логин
+             var b = document.getElementById("b").value;//Читаем пароль
+            //Если логин и пароль пустой
+            if(a.length==0)
+                {
+                  msg("Логин не введен!");
+                }
+            else if(b.length==0)
+                {
+                   msg("Пароль не введен!");
+                }
+            else{
+                //Пишем в базу логин и пароль
+            localStorage.setItem("loginact",a)
+            localStorage.setItem("passwordact",b)
+            localStorage.setItem("access_act","true")//Автовход
+ msg("Логин и пароль сохранены!");
+            }
+        }
+function login()
+{
+
+
+       test=window.plugins.PushbotsPlugin.getRegistrationId(function(token){
+    return token
+});
+
+     window.plugins.PushbotsPlugin.setAlias(device.uuid);
+
+
+   var a = document.getElementById("a").value;
+    var b = document.getElementById("b").value;
+
+    //Если в базе  сохранен пароль
+if (localStorage.loginact !== "undefined") {
+    //Присваиваем значения из базе
+login_act=localStorage.loginact;
+password_act=localStorage.passwordact;
+}
+    else{
+
+    }
+
+  //Если пароли не равны при вводе присваиваем значения из поля, проверяя на пустату
+if (login_act !==a)
+    {
+
+        if(a.length !==0)
+        {
+        login_act=a;
+        }
+        else
+            {
+
+            }
+    }
+else
+    {
+
+    }
+
+
+if (password_act !==b)
+    {
+        if(b.length !==0)
+        {
+        password_act=b;
+        }
+        else
+            {
+
+            }
+    }
+else
+    {
+
+    }
+ //Делаем Ajax запрос к серверу
+     select="http://app.routerband.ru/login.php"//Путь до вызываемого файла
+     $.ajax ({
+    	url:  select,
+         timeout: "60000",
+    	type: "POST",
+    	data: ({a: login_act,
+    	b: password_act}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+      error: function(jqXHR, textStatus){
+        if(textStatus === 'timeout')
+        {
+    document.getElementById("summa").innerHTML ="";
+       msg("Ошибка подключения");
+        }
+    },
+    	success: function(data)
+    	{
+    	    string=data;
+   //Главное тело ответа!
+          string=string.trim();
+
+string = JSON.parse(string);
+            //Создаем переменную с передачей параметров на главную страницу
+action= "action.html?per=" + string.phpsesid + "&status=" + string.status + "&loginpush=" + login_act + "&uuid=" + device.uuid + "&balance=" + string.balance + "" ;
+if(string.log=="access"){
+window.location=action;
+}
+else if(string.log=="err1")
+{
+    msg("Логин или пароль не верны!");
+    document.getElementById("summa").innerHTML="";
+
+ }
+ else if(string.log=="err2")
+{
+     msg("Логин или пароль не введены!");
+    document.getElementById("summa").innerHTML="";
+ }
+    }
+  });
+
+    function funcBefore () {
+           	document.getElementById("summa").innerHTML="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
+        }
+
+
+
+}
+    </script>
+  </head>
+
+  <body>
+      <script type="text/javascript" charset="utf-8">
+         function msg(text_msg){
+swal({
+  title: '',
+  text: text_msg,
+  timer: 4000
+}).then(
+    
+  function () {},
+  // handling the promise rejection
+  function (dismiss) {
+       index="index.html";
+  window.location=index;
+    if (dismiss === 'timer') {
+      console.log('I was closed by the timer')
+    }
+  }
+)
+        }
+     
+          
+      </script>
+      <div id="page-transitions">
+          <div class="page-preloader page-preloader-dark">
+              <div class="spinner"></div>
+          </div>
+
+
+          <div id="sidebar-tap-close"></div>
+          <div id="page-content">
+              <div class="page-fullscreen bg-2">
+                  <div class="page-fullscreen-content">
+                      <div class="pageapp-login">
+                          <div id="div_login" >
+                              <a href="#" class="pageapp-login-logo">
+
+                              </a>
+
+                              <center>
+                                  <a href="http://routerband.ru">   <img src="images/preload-logo.png" alt="img" width="35%" height="25%" align="center"></a>
+                              </center>
+                              <p align="center"> <span id="summa"></span></p>
+                              <span id="test"></span>
+                              <div class="pageapp-login-input">
+                                  <i class="login-icon ion-person"></i>
+                                  <input type="text" name="a" id="a"  align="center" />
+
+
+                              </div>
+                              <div class="pageapp-login-input">
+                                  <i class="login-icon ion-locked"></i>
+                                  <input type="password" name="b" id="b"  align="center" />
+                                  <script>
+           if(localStorage.loginact==undefined)
+               {
+                  document.getElementById("a").placeholder="Логин"
+               }
+                        else
+                        {
+                      document.getElementById("a").placeholder=localStorage.loginact;
+                        }
+            if(localStorage.passwordact==undefined)
+                {
+                   document.getElementById("b").placeholder="Пароль"
+                }
+                        else
+                            {
+                document.getElementById("b").placeholder=localStorage.passwordact;
+                            }
+           </script>
+                              </div>
+                              <div class="decoration"></div>
+                              <div class="pageapp-login-links">
+                                  <a href="#" onclick="save()" class="page-login-create">Запомнить Логин и Пароль<i class="ion-person"></i></a>
+                                  <div class="clear"></div>
+                              </div>
+                              <div class="decoration"></div>
+                              <div class="pageapp-login-links">
+                                  <a href="http://page.routerband.ru/wp-login.php?action=lostpassword" class="page-login-forgot"><i class="ion-ios-eye"></i>Забыл пароль</a>
+                                  <a href="#" onclick="register()" class="page-login-create">Регистрация<i class="ion-person"></i></a>
+                                  <div class="clear"></div>
+                              </div>
+
+                              <div class='heading-block' id="login_button">
+                                  <input type="button" class='button-ghost button-center-large button-bold button-round animate-bottom' id="button_enter" value="Войти" align="center" onclick="login()" />
+                              </div>
+
+
+
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+              <div class="overlay dark-overlay"></div>
+          </div>
+      </div>
+
+  </body>
+
+
+</html>

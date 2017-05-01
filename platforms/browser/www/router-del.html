@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>Routerband</title>
+    
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" class="switch_style" href="styles/skin.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="styles/ionicons.min.css">
+  <link href="styles/sweetalert.css" rel="stylesheet"/> 
+    
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+ <script type="text/javascript" src="scripts/post.js"></script>
+    <script src="scripts/sweetalert.js"></script>
+   
+</head>
+
+<body>
+    <div id="loading" class="loading_center"></div>
+<div id="page-transitions">
+    
+<div class="page-preloader page-preloader-dark">
+    <div class="spinner"></div>
+</div>
+    
+<div id="header">
+    <a href="#" class="open-left-sidebar"><i class="ion-navicon"></i></a>
+ <a href="http://routerband.ru" class="page-logo"></a>
+    <a href="#" class="open-right-sidebar"><i class="ion-ios-more"></i></a>
+</div>
+
+<div id="sidebar-tap-close"></div>
+
+<div id="sidebar-left">
+    <div class="sidebar-scroll">
+        <a href="javascript:windows('action')" class="sidebar-logo sidebar-item"></a><a href="#" class="sidebar-item sidebar-close"><i class="ion-ios-close-empty"></i></a>
+        <a href="#" class="sidebar-item sidebar-close"><i class="ion-ios-close-empty"></i></a>
+        <div class="sidebar-item sidebar-divider"></div>
+        <div class="sidebar-menu">            
+            <a class="sidebar-item" data-sub="sub-1" href="#"><i class="ion-ios-home-outline"></i>Профиль</a>
+            <div id="sub-1" class="submenu">
+                <a class="sidebar-item"  href="javascript:windows('profile-information')">Информация</a>
+                <a class="sidebar-item" href="javascript:windows('profile-change')">Изменения</a>
+                <a class="sidebar-item" href="javascript:windows('profile-sittings')">Настройки</a>
+            </div>
+
+            <a class="sidebar-item" data-sub="sub-2" href="#"><i class="ion-ios-gear-outline"></i>Роутер</a>
+            <div id="sub-2" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('router-information')">Информация</a>
+                <a class="sidebar-item" href="javascript:windows('router-select')">Выбор</a>
+                <a class="sidebar-item" href="javascript:windows('router-secret')">Доступ</a>
+                <a class="sidebar-item" href="javascript:windows('router-add')">Добавление</a>
+                <a class="sidebar-item" href="javascript:windows('router-name')">Имена</a>
+                <a class="sidebar-item" href="javascript:windows('router-del')">Удаление</a>
+            </div>                       
+            
+            <a class="sidebar-item" data-sub="sub-3" href="#"><i class="ion-ios-gear-outline"></i>Wi-Fi</a>
+            <div id="sub-3" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('wifi-information')">Информация</a>
+                <a class="sidebar-item" href="javascript:windows('wifi-clients')">Подключения</a>
+              <!-- <a class="sidebar-item" href="javascript:windows('wifi-scaner-ssid')">Сканер сетей</a>
+                <a class="sidebar-item" href="javascript:windows('wifi-scaner-fre')">Сканер частот</a> -->
+                    <a class="sidebar-item" href="javascript:windows('wifi-change-ssid')">Сменить имя wi-fi</a>
+                <a class="sidebar-item" href="javascript:windows('wifi-change-psw')">Сменить пароль wi-fi</a>
+            </div>
+            
+            
+            <a class="sidebar-item" data-sub="sub-4" href="#"><i class="ion-ios-analytics-outline"></i>Диагностика</a>
+            <div id="sub-4" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('diagnostic-all')">Общая</a>
+                <a class="sidebar-item" href="javascript:windows('diagnostic-ping')">Ping</a>
+                <a class="sidebar-item" href="javascript:windows('diagnostic-trace')">Трассировка</a>
+                <a class="sidebar-item" href="javascript:windows('diagnostic-speedtest')">Speed test</a>
+            </div>
+            
+            <a class="sidebar-item" data-sub="sub-5" href="#"><i class="ion-ios-copy-outline"></i>Безопасность</a>
+            <div id="sub-5" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('security-service')">Сервисы</a>
+                <a class="sidebar-item" href="javascript:windows('security-rules')">Список правил</a>
+                <a class="sidebar-item" href="javascript:windows('security-block')">Блокировка</a>
+             </div>
+            
+            <a class="sidebar-item" data-sub="sub-6" href="#"><i class="ion-ios-gear-outline"></i>Настройки</a>
+            <div id="sub-6" class="submenu">
+                <a class="sidebar-item" href="javascript:windows('sitting-reboot')">Перезагрузка</a>
+            </div>    
+            <a class="sidebar-item" href="javascript:windows('news')"><i class="ion-ios-compose-outline"></i>Новости<i class="ion-record"></i></a>
+            <a class="sidebar-item" href="javascript:windows('instructions')"><i class="ion-ios-compose-outline"></i>Инструкции<i class="ion-record"></i></a><a class="sidebar-item" href="javascript:windows('video')"><i class="ion-ios-videocam-outline"></i>Видео<i class="ion-record"></i></a>
+            <a class="sidebar-item" href="javascript:windows('callback')"><i class="ion-ios-email-outline"></i>Обратная связь<i class="ion-record"></i></a>
+        </div>
+        <div class="sidebar-item sidebar-divider"></div>
+        <div class="sidebar-item sidebar-copyright">
+            <em>Copyright <span class="copyright-year"></span>. Все права защищены.</em>
+        </div>
+        <div class="sidebar-item sidebar-divider"></div>
+    </div>
+</div>
+    
+<div id="sidebar-right">
+    <div class="sidebar-scroll">
+        <div class="sidebar-small-menu">
+            <a href="https://vk.com/club137316622" class="sidebar-item"><i class="ion-social-facebook-outline"></i><em>Vkontakte</em></a>
+            <a href="#" class="sidebar-item"><i class="ion-social-youtube-outline"></i><em>YouTube</em></a>
+             <a href="#" onClick="logout()" class="sidebar-item"><i></i><em>Выход</em></a>
+            </div>
+    </div>
+</div> 
+
+<div id="page-content" class="header-clear">
+    <div class="heading-strip bg-5">
+        <h3>Роутер</h3>
+        <p>Удаление устройства</p>
+
+        <div class="overlay dark-overlay"></div>
+    </div>
+    <div class="decoration decoration-margins"></div>
+
+
+    <div class="content"> 
+        <div  id="router_select">
+             
+    </div>
+                </div>            
+
+
+    <div class="decoration decoration-margins"></div>
+
+   
+</div>
+    
+
+ <script type="text/javascript">
+    <!-- Аякс запрос -->
+    $.ajax ({
+    	url:  select,
+        timeout: errortime,
+    	type: "POST",
+    	data: ({type: "router_device"}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+        error: function(jqXHR, textStatus){
+        if(textStatus === 'timeout')
+        {     
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+           ajaxerror()
+        }
+    },
+    	success: function(data)
+    	{
+    	    string=data;
+    <!-- Чистим ответ json -->
+          string=string.trim();
+           <!-- Провкряем сессию -->
+          if(string == "no session")
+          { 
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+          msg3("Необходима авторизация");
+        }
+        
+            <!-- Парсим json -->
+          string = JSON.parse(string);        
+
+        <!-- Набиваем тело ответа -->
+            
+              for (var i = 0; i < string.count; i++)
+{ 
+    
+   
+                z=string.device[i];
+                def="<input type='button' id='router_device_sel_"+i+"'  name='"+z+"' onclick='router_device(this.name)' value= 'Отвязать' >";
+               bg="bg-gray-dark"; 
+            
+    router_select_div="router_select"+i;
+    if(string.devicename[i]=="")
+        {
+            string.devicename[i]="Не задано"
+        }
+    $("#router_select").append('<div class="accordion-item accordion-bg '+bg+' half-bottom"><a href="#" name="'+router_select_div+'" onclick="router_select_act(this.name)" class="accordion-toggle">'+string.devicename[i]+'<i class="ion-android-add"></i></a><div class="dropdown-content dropdown-ghost" name="'+router_select_div+'" id="'+router_select_div+'"><a href="#" class="dropdown-item"><em>Серийный номер: </em>'+string.device[i]+'</a><a href="#" class="dropdown-item">'+def+'</a></div></div>');  
+
+
+}
+            document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML ="";
+           
+      
+        }
+    });
+     function funcBefore () {
+        	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
+      document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
+        }    
+      function router_select_act(num)
+    
+            {
+if(document.getElementById(num).style.display=='block'){
+                document.getElementById(num).style.display = 'none';
+        visible =false; 
+}
+                else
+                    {
+                              document.getElementById(num).style.display = 'block';
+        visible =true; 
+                    }
+            }
+
+       <!-- Предварительная загрузка -->
+   //function funcBefore () {
+     //   	document.getElementById("profile_telnumber").innerHTML="<img align='center' src='img/loading.gif' width='15%' height='15%'>";
+
+       // }   
+
+ function router_device(selected) { 
+    <!-- Аякс запрос -->
+    $.ajax ({
+    	url:  select,
+        timeout: errortime,
+    	type: "POST",
+    	data: ({type: "router_del",
+    	metod: selected}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+        error: function(jqXHR, textStatus){
+        if(textStatus === 'timeout')
+        {     
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+           ajaxerror()
+        }
+    },
+    	success: function(data)
+    	{
+    	    string=data;
+          string=string.trim();
+    <!-- Проверяем сессию -->       
+           if(string == "no session")
+          { 
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+          msg3("Необходима авторизация");
+        }
+
+              <!-- Парсим ответ -->
+          string = JSON.parse(string); 
+    <!-- Функция при которой действие выполнено успешно и необходима переавторизация -->       
+          if(string.deleted=="yes")
+          {  
+          msg("Выбранное устройство удалено.");
+           window.location="index.html";
+        }
+            else if(string.deleted=="no")
+          {  
+          msg("Устройство не найдено.");
+        }
+            
+                  document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML ="";
+        }
+    });
+     function funcBefore () {
+        	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
+      document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
+        }   
+ }
+    </script>  
+    
+</div>
+</body>
