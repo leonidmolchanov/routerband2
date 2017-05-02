@@ -47,6 +47,7 @@ var per=param("per");
 var uuid=param("uuid");
 var status=param("status");
 var balance=param("balance");
+var login_act=param("loginpush");
 select="http://app.routerband.ru/intropage.php?PHPSESSID=" + per + "";
 select_action="http://app.routerband.ru/introaction.php?PHPSESSID=" + per + "";
 function windows(address)
