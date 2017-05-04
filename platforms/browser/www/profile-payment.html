@@ -33,7 +33,10 @@
     
 <div id="header">
     <a href="#" class="open-left-sidebar"><i class="ion-navicon"></i></a>
-    <a href="http://routerband.ru" class="page-logo"></a>
+   <!-- <a href="http://routerband.ru" class="page-logo"> -->
+        <!-- Вывод баланса пользователя -->
+        <p align="center"><font color="#ffffff"><i class="ion-speedometer"></i></font> &nbsp <font id="pingcolor" color="#ffffff"><span id="ping"></span></font>&nbsp &nbsp
+            <font color="#ffffff"><i class="ion-social-usd"></i>&nbsp<span id="balance"></span></font></p>
     <a href="#" class="open-right-sidebar"><i class="ion-ios-more"></i></a>
 </div>
 
@@ -51,6 +54,7 @@
                 <a class="sidebar-item"  href="javascript:windows('profile-information')">Информация</a>
                 <a class="sidebar-item" href="javascript:windows('profile-change')">Изменения</a>
                 <a class="sidebar-item" href="javascript:windows('profile-sittings')">Настройки</a>
+                 <a class="sidebar-item" href="javascript:windows('profile-payment')">Оплата</a>
             </div>
 
             <a class="sidebar-item" data-sub="sub-2" href="#"><i class="ion-ios-gear-outline"></i>Роутер</a>
@@ -203,8 +207,7 @@
      
      
   function payment(summa) {
-      alert(summa);
-      alert(login_act);
+     
 
       paymentUrl="https://money.yandex.ru/api/instance-id";
       
@@ -232,7 +235,6 @@
      document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
     document.getElementById("loading").innerHTML =""; 
             string = JSON.parse(string); 
-            alert(string.instance_id)
   payment.instance_id=string.instance_id;
         
         //Аякс запрос на проведение платежа
@@ -267,7 +269,6 @@
     document.getElementById("loading").innerHTML ="";
         string=data
          string = JSON.parse(string);
-            alert(string.request_id)
      payment.request_id=string.request_id;
             
             
@@ -304,8 +305,6 @@
     document.getElementById("loading").innerHTML ="";
         string=data
          string = JSON.parse(string);
-            alert(data)
-            alert(string.acs_uri)
             cashUrl=string.acs_uri+"?cps_context_id="+string.acs_params.cps_context_id+"&paymentType="+string.acs_params.paymentType+""
           window.open(cashUrl, "_system")  
         }

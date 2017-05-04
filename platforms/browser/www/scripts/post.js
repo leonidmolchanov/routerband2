@@ -1,30 +1,5 @@
 
     
-            //Подключаемся к серверу
-	var socket = io.connect('http://95.213.208.74:8000');
-       // socket.on('eventClient', function (data) {
-       // for(var i in data ) {
-       //alert(i)
-        
-        //}
-           // string = JSON.parse(data.data);
-            
-            //Парсим ответ
-           
-          //  string = JSON.parse(data.data);
-            // Условие если ответа нет
-            
-            
-       // }
-                  
-                  	socket.emit('eventServer', { data: 'Hello Server' });
-    
-    //Цикл постоянной связи с серверов    
-   // setInterval(function () {
-     // socket.emit('eventServer', { data: 'Hello Server2' });
-//}, 5000);    
-
-   
 
      <!-- Какая-то функция -->     
   function param(Name)
@@ -50,9 +25,42 @@ var balance=param("balance");
 var login_act=param("loginpush");
 select="http://app.routerband.ru/intropage.php?PHPSESSID=" + per + "";
 select_action="http://app.routerband.ru/introaction.php?PHPSESSID=" + per + "";
+
+            //Подключаемся к серверу
+	var socket = io.connect('http://95.213.208.74:8000');
+   
+   setInterval(function () {               
+                  	socket.emit('eventServer', { data: login_act });
+
+     socket.on('eventClient', function (data) {
+   
+           
+            string = JSON.parse(data.data);
+            // Условие если ответа нет
+       
+            document.getElementById("balance").innerHTML =string.Balance+" руб.";
+         document.getElementById("ping").innerHTML =string.ping+" мс";
+         string.ping=Number(string.ping)
+         if(string.ping<=100)
+             {
+         pingcolor.color="#00f000";
+             }
+         else if (string.ping<=300)
+             {
+              pingcolor.color="#ff8000";   
+             }
+         else
+             {
+              pingcolor.color="#ff0000";   
+             }
+        });
+   
+  }, 5000); 
+
+
 function windows(address)
 {
-    address=""+address+".html?per=" + per + "&status=" + status + "" ;
+    address=""+address+".html?per=" + per + "&status=" + status +"&loginpush=" + login_act + "" ;
  window.location=address;}
 
 errortime= 30000;
