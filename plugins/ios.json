@@ -1,0 +1,24 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "ru.routerband.routerband"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "ru.routerband.routerband"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "ru.routerband.routerband"
+        },
+        "pushbots-cordova-plugin": {
+            "PACKAGE_NAME": "ru.routerband.routerband"
+        }
+    },
+    "dependent_plugins": {}
+}

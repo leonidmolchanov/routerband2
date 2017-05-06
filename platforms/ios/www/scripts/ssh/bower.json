@@ -1,0 +1,27 @@
+{
+  "name": "angular-ssh",
+  "version": "0.1.1",
+  "description": "Angular SSH Client",
+  "homepage": "https://github.com/R3nPi2/angular-ssh",
+  "authors": [
+    { "name" : "R3n Pi2", "email" : "r3npi2@gmail.com", "homepage" : "https://github.com/R3nPi2/" }
+  ],
+  "repository": { 
+    "type": "git",
+    "url": "git://github.com/R3nPi2/angular-ssh.git"
+  },  
+  "main": "angular-ssh.js",
+  "keywords": [
+    "ssh",
+    "ssh client",
+    "cordova-plugin-sshclient"
+  ],
+  "license": "SEE LICENSE FILE",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
