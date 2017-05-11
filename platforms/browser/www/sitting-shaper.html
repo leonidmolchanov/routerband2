@@ -12,39 +12,34 @@
 <link rel="stylesheet" type="text/css" class="switch_style" href="styles/skin.css">
 <link rel="stylesheet" type="text/css" href="styles/framework.css">
 <link rel="stylesheet" type="text/css" href="styles/ionicons.min.css">
-  <link href="styles/sweetalert.css" rel="stylesheet"/>   
+   <link href="styles/sweetalert.css" rel="stylesheet"/> 
+        <script type="text/javascript">
+$(document).bind("mobileinit", function() {
+    $.support.cors = true;
+    $.mobile.allowCrossDomainPages = true;
+});
+</script>
+       <script src="scripts/maskedinput.js"></script>
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/plugins.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
-      <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
  <script type="text/javascript" src="scripts/post.js"></script>
-      <script src="scripts/sweetalert.js"></script>
-    
-  
+    <script src="scripts/sweetalert.js"></script>
+      
 </head>
 
 <body>
-    <script type="text/javascript" charset="utf-8">
-         function msg(text_msg){
+     <script type="text/javascript">
+
+       function msg(text_msg){
 swal({
-  title: '',
-  text: text_msg,
-  timer: 4000
-}).then(
-    
-  function () {},
-  // handling the promise rejection
-  function (dismiss) {
-       index="index.html";
-  window.location=index;
-    if (dismiss === 'timer') {
-      console.log('I was closed by the timer')
-    }
-  }
-)
+      title: 'Сообщение',
+      //background: '#f00',
+      text: text_msg});
         }
-      </script>
-  <div id="loading" class="loading_center"></div>
+    </script>
+<div id="loading" class="loading_center"></div>
 <div id="page-transitions">
     
 <div class="page-preloader page-preloader-dark">
@@ -60,6 +55,7 @@ swal({
     <a href="#" class="open-right-sidebar"><i class="ion-ios-more"></i></a>
 </div>
 
+    
 <div id="sidebar-tap-close"></div>
 
 <div id="sidebar-left">
@@ -90,7 +86,7 @@ swal({
             <div id="sub-3" class="submenu">
                 <a class="sidebar-item" href="javascript:windows('wifi-information')">Информация</a>
                 <a class="sidebar-item" href="javascript:windows('wifi-clients')">Подключения</a>
-                 <!-- <a class="sidebar-item" href="javascript:windows('wifi-scaner-ssid')">Сканер сетей</a>
+              <!-- <a class="sidebar-item" href="javascript:windows('wifi-scaner-ssid')">Сканер сетей</a>
                 <a class="sidebar-item" href="javascript:windows('wifi-scaner-fre')">Сканер частот</a> -->
                     <a class="sidebar-item" href="javascript:windows('wifi-change-ssid')">Сменить имя wi-fi</a>
                 <a class="sidebar-item" href="javascript:windows('wifi-change-psw')">Сменить пароль wi-fi</a>
@@ -114,9 +110,9 @@ swal({
             
             <a class="sidebar-item" data-sub="sub-6" href="#"><i class="ion-ios-gear-outline"></i>Настройки</a>
             <div id="sub-6" class="submenu">
-                  <a class="sidebar-item" href="javascript:windows('sitting-modules')">Модули</a>
-                <a class="sidebar-item" href="javascript:windows('sitting-shaper')">Умный трафик</a>
                 <a class="sidebar-item" href="javascript:windows('sitting-reboot')">Перезагрузка</a>
+                <a class="sidebar-item" href="javascript:windows('sitting-modules')">Модули</a>
+                <a class="sidebar-item" href="javascript:windows('sitting-shaper')">Умный трафик</a>
             </div>    
             <a class="sidebar-item" href="javascript:windows('news')"><i class="ion-ios-compose-outline"></i>Новости<i class="ion-record"></i></a>
             <a class="sidebar-item" href="javascript:windows('instructions')"><i class="ion-ios-compose-outline"></i>Инструкции<i class="ion-record"></i></a><a class="sidebar-item" href="javascript:windows('video')"><i class="ion-ios-videocam-outline"></i>Видео<i class="ion-record"></i></a>
@@ -141,35 +137,105 @@ swal({
 </div> 
 
 <div id="page-content" class="header-clear">
-    <div class="heading-strip bg-5">
-        <h3>Роутер</h3>
-        <p>Выбор Устройства</p>
-
+ <div class="heading-strip bg-2">
+        <h3>Настройки</h3>
+        <p>Умный трафик</p>
         <div class="overlay dark-overlay"></div>
     </div>
-    <div class="decoration decoration-margins"></div>
-
-
-    <div class="content"> 
-        <div  id="router_select">
-             
-    </div>
-                </div>            
-
-
-    <div class="decoration decoration-margins"></div>
-
-   
-</div>
     
+     <div class="content" >
+        <ul class="tabs">
+            <li class="tab-link current" data-tab="tabs-1">Модули</li>
+            <li class="tab-link" data-tab="tabs-2">Сервисы</li>
+            <li class="tab-link" data-tab="tabs-3">Онлайн-Видео</li>
+            <li class="tab-link" data-tab="tabs-4">Соц-сети</li>
+            <li class="tab-link" data-tab="tabs-5">Пользователи</li>
+            <li class="tab-link" data-tab="tabs-6">Канал</li>
+        </ul>
 
-  <script type="text/javascript">
+        <div id="tabs-1" class="tab-content current">
+           <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Фильтрации":</strong>
+                <em><font color="#6e6e6e"><span id="stblock">sdasd</span></font></em>
+            </div> 
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Списки доступа":</strong>
+                <em><font color="#6e6e6e"><span id="stblock">sdasd</span></font></em>
+            </div> 
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Контроллер канала":</strong>
+                <em><font color="#6e6e6e"><span id="stblock">sdasd</span></font></em>
+            </div> 
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Оптимизатор канала":</strong>
+                <em><font color="#6e6e6e"><span id="stblock">sdasd</span></font></em>
+            </div> 
+            
+        </div>
+        <div id="tabs-2" class="tab-content">
+            <div class="tab-elements">
+                    <div class="page-login content full-bottom">
+            <div class="page-login-input">
+            <i class="login-icon ion-person"></i>
+	
+<form id="form1">
+<input type="text" id="zipCode" onkeyup="javascript:mask('zipCode', '+7(000)000-00-00', event);" value="" placeholder="Новый номер телефона">
+    </form>
+        </div>                
+        
+
+        <a href="#"  onclick='telnumber(zipCode.value)' class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i>Сменить</a>
+                </div>
+            </div>
+        </div>
+        <div id="tabs-3" class="tab-content">
+            <div class="tab-elements">
+                   <div class="page-login content full-bottom">
+             <div class="page-login-input">
+            <input type="password" id="psw1" placeholder="Новый пароль" >
+                  <input type="password" id="psw2" placeholder="Новый пароль повторно">
+        </div>                
+        
+
+        <a href="#" onclick='password_act(psw1.value)' class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i>Сменить</a>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+
+    
+</div>
+ 
+    <script type="text/javascript">
+             
+             
+                function email(metod){
+                    
+  if ( metod == '') {
+      msg("Введите Ваш Email !")
+        metod.focus();
+        return;
+    }
+reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+    if (!metod.match(reg)) {
+        msg("Пожалуйста, введите правильный e-mail !")
+       metod="";
+       return
+    }
+                    
     <!-- Аякс запрос -->
     $.ajax ({
     	url:  select,
-         timeout: errortime,
     	type: "POST",
-    	data: ({type: "router_device"}),
+        timeout: errortime,
+    	data: ({type: "profile_change",
+    	metod: "email",
+        metod2: metod}),
     	dataType: "html",
     	beforeSend: funcBefore,
         error: function(jqXHR, textStatus){
@@ -192,78 +258,45 @@ swal({
     document.getElementById("loading").innerHTML =""; 
           msg3("Необходима авторизация");
         }
-        
             <!-- Парсим json -->
           string = JSON.parse(string);        
+
         <!-- Набиваем тело ответа -->
-            
-              for (var i = 0; i < string.count; i++)
-{ 
-    
-    if(string.device[i]==string.master)
-            {def= "  Выбрано";
-             bg="bg-green-dark"; 
-            }
-            else
-            {
-                z=string.device[i];
-                def="<input type='button' id='router_device_sel_"+i+"'  name='"+z+"' onclick='router_device(this.name)' value= 'Выбрать' >";
-               bg="bg-gray-dark"; 
-            }  
-    router_select_div="router_select"+i;
-    if(string.devicename[i]=="")
-        {
-            string.devicename[i]="Не задано"
-        }
-    $("#router_select").append('<div class="accordion-item accordion-bg '+bg+' half-bottom"><a href="#" name="'+router_select_div+'" onclick="router_select_act(this.name)" class="accordion-toggle">Имя: '+string.devicename[i]+'<i class="ion-android-add"></i></a><div class="dropdown-content dropdown-ghost" name="'+router_select_div+'" id="'+router_select_div+'"><a href="#" class="dropdown-item"><em>Серийный номер: </em>'+string.device[i]+'</a><div class="decoration decoration-margins"></div><a href="#" class="dropdown-item">'+def+'</a></div></div>');  
-
-
-}
-             //alert(document.getElementById("security_firewall").innerHTML)
-// document.getElementById('wifi_content' ).style.display = 'none';
-       // visible =false; 
-           
-          document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+             document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
     document.getElementById("loading").innerHTML ="";
+       msg("Email-адрес изменен!")
         }
     });
-      
-      function funcBefore () {
+           
+            
+    <!-- Предварительная загрузка -->
+   function funcBefore () {
         	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
       document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
-        }    
-      
-      function router_select_act(num)
-    
-            {
-if(document.getElementById(num).style.display=='block'){
-                document.getElementById(num).style.display = 'none';
-        visible =false; 
-}
-                else
-                    {
-                              document.getElementById(num).style.display = 'block';
-        visible =true; 
-                    }
-            }
+        }   
 
-       <!-- Предварительная загрузка -->
-   //function funcBefore () {
-     //   	document.getElementById("profile_telnumber").innerHTML="<img align='center' src='img/loading.gif' width='15%' height='15%'>";
+             }
 
-       // }   
-
- function router_device(selected) { 
+             
+             function telnumber(metod){
+if(metod.length< 16)
+    {
+         msg("Пожалуйста, введите правильный номер телефона!")
+metod="";
+       return
+    }
+         
     <!-- Аякс запрос -->
     $.ajax ({
     	url:  select,
-         timeout: errortime,
     	type: "POST",
-    	data: ({type: "router_device",
-    	metod: selected}),
+        timeout: errortime,
+    	data: ({type: "profile_change",
+    	metod: "telnumber",
+        metod2: metod}),
     	dataType: "html",
     	beforeSend: funcBefore,
-         error: function(jqXHR, textStatus){
+        error: function(jqXHR, textStatus){
         if(textStatus === 'timeout')
         {     
               document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
@@ -274,33 +307,142 @@ if(document.getElementById(num).style.display=='block'){
     	success: function(data)
     	{
     	    string=data;
+    <!-- Чистим ответ json -->
           string=string.trim();
-    <!-- Проверяем сессию -->       
-           if(string == "no session")
+           <!-- Провкряем сессию -->
+          if(string == "no session")
+          {
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+          msg3("Необходима авторизация");
+        }
+            <!-- Парсим json -->
+          string = JSON.parse(string);        
+
+        <!-- Набиваем тело ответа -->
+          
+     document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML ="";
+            msg("Телефонный номер изменен!")
+        }
+    });
+           
+            
+    <!-- Предварительная загрузка -->
+  function funcBefore () {
+        	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
+      document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
+        }   
+
+             }
+
+    
+    
+    
+    function password_act(metod){
+               
+        if(psw1.value==psw2.value)
+            {
+            
+                
+           <!-- Аякс запрос -->
+    $.ajax ({
+    	url:  select,
+    	type: "POST",
+        timeout: errortime,
+    	data: ({type: "profile_change",
+    	metod: "password",
+        metod2: metod}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+        error: function(jqXHR, textStatus){
+        if(textStatus === 'timeout')
+        {     
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+           ajaxerror()
+        }
+    },
+    	success: function(data)
+    	{
+    	    string=data;
+    <!-- Чистим ответ json -->
+          string=string.trim();
+           <!-- Провкряем сессию -->
+          if(string == "no session")
           { 
               document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
     document.getElementById("loading").innerHTML =""; 
           msg3("Необходима авторизация");
         }
+            <!-- Парсим json -->
+          string = JSON.parse(string);        
 
-              <!-- Парсим ответ -->
-          string = JSON.parse(string); 
-    <!-- Функция при которой действие выполнено успешно и необходима переавторизация -->       
-          if(string.metod=="logout")
-          { msg("Выбранное устройство установленно по умолчанию, необходима авторизация.") ;
-         
-        }
-                  
+        <!-- Набиваем тело ответа -->
           document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
-    document.getElementById("loading").innerHTML ="";
+    document.getElementById("loading").innerHTML ="";   
+     msg("Пароль изменен!")
         }
     });
-      function funcBefore () {
+           
+            
+    <!-- Предварительная загрузка -->
+   function funcBefore () {
         	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
       document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
-        }    
- }
-    </script>  
+        }   
+ 
+      
+                
+                
+                
+            }
+        else
+        {
+            msg("Пароли не совпадают !")
+        }
+   
+             }
+    </script> 
     
+    
+    
+    <script type="text/javascript">
+  function mask(inputName, mask, evt) {
+    try {
+      var text = document.getElementById(inputName);
+      var value = text.value;
+      // If user pressed DEL or BACK SPACE, clean the value
+      try {
+        var e = (evt.which) ? evt.which : event.keyCode;
+        if ( e == 46 || e == 8 ) {
+          text.value = "";
+          return;
+        }
+      } catch (e1) {}
+ 
+      var literalPattern=/[0\*]/;
+      var numberPattern=/[0-9]/;
+      var newValue = "";
+      for (var vId = 0, mId = 0 ; mId < mask.length ; ) {
+        if (mId >= value.length)
+          break;
+        // Number expected but got a different value, store only the valid portion
+        if (mask[mId] == '0' && value[vId].match(numberPattern) == null) {
+          break;
+        }
+        // Found a literal
+        while (mask[mId].match(literalPattern) == null) {
+          if (value[vId] == mask[mId])
+            break;
+        newValue += mask[mId++];
+      }
+      newValue += value[vId++];
+      mId++;
+    }
+    text.value = newValue;
+  } catch(e) {}
+}
+</script>   
 </div>
 </body>
