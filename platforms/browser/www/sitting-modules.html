@@ -35,7 +35,7 @@
     <a href="#" class="open-left-sidebar"><i class="ion-navicon"></i></a>
    <!-- <a href="http://routerband.ru" class="page-logo"> -->
         <!-- Вывод баланса пользователя -->
-        <p align="center"><font color="#ffffff"><i class="ion-speedometer"></i></font> &nbsp <font id="pingcolor" color="#ffffff"><span id="ping"></span></font>&nbsp &nbsp
+        <p align="center"><font color="#ffffff"><i class="ion-soup-can"></i></font> &nbsp <font id="proccolor" color="#ffffff"><span id="proc"></span></font>&nbsp &nbsp<font color="#ffffff"><i class="ion-speedometer"></i></font> &nbsp <font id="pingcolor" color="#ffffff"><span id="ping"></span></font>&nbsp &nbsp
             <font color="#ffffff"><i class="ion-social-usd"></i>&nbsp<span id="balance"></span></font></p>
     <a href="#" class="open-right-sidebar"><i class="ion-ios-more"></i></a>
 </div>
@@ -123,8 +123,8 @@
 <div id="page-content" class="header-clear">
 
     <div class="heading-strip bg-2">
-        <h3>Диагностика</h3>
-        <p>Общая проверка</p>
+        <h3>Настройки</h3>
+        <p>Модули</p>
         <div class="overlay dark-overlay"></div>
     </div>
 
@@ -135,18 +135,52 @@
             <div id="snmp" class="activity-item one-half-responsive"> 
             </div>   
             <div id="reboot" class="activity-item one-half-responsive">
-            </div>                
+            </div>
+            <div id="routerband" class="activity-item one-half-responsive">
+            </div> 
+            <div id="pxe" class="activity-item one-half-responsive">
+            </div>  
             <div class="activity-item one-half-responsive">
-              <i class="ion-record color-blue-dark"></i>
-                <strong>Модуль "PXE":</strong>
-                <em><font color="#6e6e6e"><span id="pxe"></span></font></em>
-            </div>   
-    <div class="activity-item one-half-responsive">
               <i class="ion-record color-blue-dark"></i>
                 <strong>Модуль "Страница блокировки":</strong>
                 <em><font color="#6e6e6e"><span id="stblock"></span></font></em>
-            </div>   
-                
+            </div>  
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "ХотСпот":</strong>
+                <em><font color="#6e6e6e"><span id="stblock"></span></font></em>
+            </div>  
+    <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Синхронизации времяни":</strong>
+                <em><font color="#6e6e6e"><span id="stblock"></span></font></em>
+            </div> 
+                <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Системный журнал":</strong>
+                <em><font color="#6e6e6e"><span id="stblock"></span></font></em>
+            </div> 
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Статистика":</strong>
+                <em><font color="#6e6e6e"><span id="stblock"></span></font></em>
+            </div> 
+        <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "СМС-Уведомлений":</strong>
+                <em><font color="#6e6e6e"><span id="stblock"></span></font></em>
+            </div> 
+    <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Облачной конфигурации":</strong>
+                <em><font color="#6e6e6e"><span id="stblock"></span></font></em>
+            </div> 
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Умной балансировки трафика":</strong>
+                <em><font color="#6e6e6e"><span id="stblock"></span></font></em>
+            </div> 
+    
 
             <div class="decoration hide-if-responsive"></div>  
 
@@ -208,12 +242,31 @@ else
  
  if (string.reboot == "true")
  {
-   $("#reboot").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "Перезагрузка":</strong> &nbsp &nbsp<em><a href="#" onclick="module(this.id)" id="rebootOff"  class="button button-red"><i class="ion-button"></i>Выключить</a></em>');
+   $("#reboot").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "Перезагрузка":</strong> &nbsp &nbsp<em><buttom  class="button button-light"><i class="ion-button"></i>Установлен</em>');
 }
 else
 {
      $("#reboot").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "Перезагрузка":</strong> &nbsp &nbsp<em><a href="#" onclick="module(this.id)" id="rebootOn"  class="button button-green"><i class="ion-button"></i>Включить</a></em>');
 }  
+ 
+                       if (string.routerband == "true")
+ {
+   $("#routerband").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "Расширения":</strong> &nbsp &nbsp<em><buttom  class="button button-light"><i class="ion-button"></i>Установлен</em>');
+}
+else
+{
+     $("#routerband").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "Расширения":</strong> &nbsp &nbsp<em><a href="#" onclick="module(this.id)" id="routerbandOn"  class="button button-green"><i class="ion-button"></i>Установить</a></em>');
+} 
+            
+            if (string.pxe == "true")
+ {
+   $("#pxe").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "PXE":</strong> &nbsp &nbsp<em><buttom  class="button button-light"><i class="ion-button"></i>Установлен</em>');
+}
+else
+{
+     $("#pxe").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "PXE":</strong> &nbsp &nbsp<em><a href="#" onclick="module(this.id)" id="pxeOn"  class="button button-green"><i class="ion-button"></i>Включить</a></em>');
+}  
+   
            
      <!-- Набиваем ответ-->
    
@@ -245,6 +298,21 @@ function module(type)
           else if(type=="bridgeOn")
               {
                 metod="bridge";
+                metod2="set";   
+              }
+           else if(type=="rebootOn")
+              {
+                metod="reboot";
+                metod2="set";   
+              }
+            else if(type=="routerbandOn")
+              {
+                metod="routerband";
+                metod2="set";   
+              }
+          else if(type=="pxeOn")
+              {
+                metod="pxe";
                 metod2="set";   
               }
           

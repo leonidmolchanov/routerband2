@@ -33,11 +33,11 @@ select_action="http://app.routerband.ru/introaction.php?PHPSESSID=" + per + "";
                   	socket.emit('eventServer', { data: login_act });
 
      socket.on('eventClient', function (data) {
-   
            
             string = JSON.parse(data.data);
             // Условие если ответа нет
-       
+      
+       document.getElementById("proc").innerHTML =string.cpu+" %";
             document.getElementById("balance").innerHTML =string.Balance+" руб.";
          document.getElementById("ping").innerHTML =string.ping+" мс";
          string.ping=Number(string.ping)
@@ -53,6 +53,9 @@ select_action="http://app.routerband.ru/introaction.php?PHPSESSID=" + per + "";
              {
               pingcolor.color="#ff0000";   
              }
+         
+        
+         
         });
    
   }, 5000); 
