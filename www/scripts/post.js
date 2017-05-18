@@ -27,7 +27,7 @@ select="http://app.routerband.ru/intropage.php?PHPSESSID=" + per + "";
 select_action="http://app.routerband.ru/introaction.php?PHPSESSID=" + per + "";
 
             //Подключаемся к серверу
-	var socket = io.connect('http://95.213.208.74:8000');
+	var socket = io.connect('http://app.routerband.ru:8000');
    
    setInterval(function () {               
                   	socket.emit('eventServer', { data: login_act });

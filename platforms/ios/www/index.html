@@ -42,9 +42,6 @@
         var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
         db.transaction(populateDB, errorCB, successCB);
         
-       
-    
-        window.sshClient.sshOpenSession(function(success){},function(error){},"192.168.88.1","admin","fender1987",50,50);
     
        window.plugins.PushbotsPlugin.initialize("5884b7214a9efaa84c8b4567", {"android":{"sender_id":"396310970315"}});
     
@@ -83,12 +80,22 @@
     }
 
 // Кнопка регистрации
-function register()
+
+        
+        function register()
 {
     register="register.html";
   window.location=register;
 }
 
+        //Локальные функции
+        
+        function local()
+{
+    register="local.html";
+  window.location=register;
+}
+        
        //Функция сохранения пароля
         function save()
         {
@@ -297,6 +304,10 @@ swal({
                               <div class="decoration"></div>
                               <div class="pageapp-login-links">
                                   <a href="#" onclick="save()" class="page-login-create">Запомнить Логин и Пароль<i class="ion-person"></i></a>
+                                  <div class="clear"></div>
+                              </div>
+                              <div class="pageapp-login-links">
+                                  <a href="#" onclick="local()" class="page-login-create">Локальные функции</a>
                                   <div class="clear"></div>
                               </div>
                               <div class="decoration"></div>

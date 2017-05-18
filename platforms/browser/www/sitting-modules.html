@@ -141,7 +141,9 @@
             <div id="routerband" class="activity-item one-half-responsive">
             </div> 
             <div id="pxe" class="activity-item one-half-responsive">
-            </div>  
+            </div> 
+            <div id="shaper" class="activity-item one-half-responsive">
+            </div> 
             <div class="activity-item one-half-responsive">
               <i class="ion-record color-blue-dark"></i>
                 <strong>Модуль "Страница блокировки":</strong>
@@ -263,7 +265,16 @@ else
 {
      $("#pxe").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "PXE":</strong> &nbsp &nbsp<em><a href="#" onclick="module(this.id)" id="pxeOn"  class="button button-green"><i class="ion-button"></i>Включить</a></em>');
 }  
-   
+  
+                       if (string.shaper == "true")
+ {
+   $("#shaper").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "Умный трафик":</strong> &nbsp &nbsp<em><buttom  class="button button-light"><i class="ion-button"></i>Установлен</em>');
+}
+else
+{
+     $("#shaper").append( '<i class="ion-record color-blue-dark"></i> <strong>Модуль "Умный трафик":</strong> &nbsp &nbsp<em><a href="#" onclick="module(this.id)" id="shaperOn"  class="button button-green"><i class="ion-button"></i>Включить</a></em>');
+}  
+            
            
      <!-- Набиваем ответ-->
    
@@ -310,6 +321,11 @@ function module(type)
           else if(type=="pxeOn")
               {
                 metod="pxe";
+                metod2="set";   
+              }
+           else if(type=="shaperOn")
+              {
+                metod="shaper";
                 metod2="set";   
               }
           

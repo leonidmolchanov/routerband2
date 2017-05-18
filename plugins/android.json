@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "com.javray.Mikrotik": {
+            "PACKAGE_NAME": "ru.routerband.routerband"
+        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "ru.routerband.routerband"
         },

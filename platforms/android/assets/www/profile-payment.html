@@ -155,6 +155,10 @@
     </div>        
     
  <script type="text/javascript">
+     
+     
+   
+     
  login_act;
      
        <!-- Аякс запрос -->
@@ -206,7 +210,72 @@
       document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
         }  
      
+    
+        function payRB(money)
+     {
+
+         
+         
+         
+          <!-- Аякс запрос -->
+    $.ajax ({
+        
+    	url:  select,
+    	type: "POST",
+        timeout: errortime,
+    	data: ({type: "payment",
+                metod: money}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+          error: function(jqXHR, textStatus){
+        if(textStatus === 'timeout')
+        {     
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+           ajaxerror()
+        }
+    },
+    	success: function(data)
+    	{
+    	    string=data;
+    <!-- Чистим ответ json -->
+          string=string.trim();
+           <!-- Провкряем сессию -->
+          if(string == "no session")
+          { 
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+          msg3("Необходима авторизация");
+        }
+           
+            <!-- Парсим json -->
+          string = JSON.parse(string);        
+
+      if(string.result=="ok")
+          {
+              msg("Ваш баланс пополнен!")
+          }
+               {
+                   
+               }
+   document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+   
+  	}
+        
+        
+    });
+    <!-- Предварительная загрузка -->
+    function funcBefore () {
+        	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
+      document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
+        }  
+         
+     }
      
+     
+     
+    
      
   function payment(summa) {
      
@@ -281,7 +350,7 @@
             
             
         paymentCashUrl="https://money.yandex.ru/api/process-external-payment"
-        $.ajax ({
+       $.ajax ({
         
     	url:  paymentCashUrl,
     	type: "POST",
@@ -312,7 +381,9 @@
         }
             
                });
-    <!-- Предварительная загрузка -->
+                   
+
+                   <!-- Предварительная загрузка -->
     function funcBefore () {
         	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
       document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
@@ -340,6 +411,70 @@
       document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
         }  
  
+      
+      
+      
+             // Ajax запрос на проведение платежа
+            
+            
+  var interval = setInterval(                 
+   function payload(){
+      paymentCashUrl="https://money.yandex.ru/api/process-external-payment"
+     $.ajax ({
+        
+    	url:  paymentCashUrl,
+    	type: "POST",
+        timeout: errortime,
+    	data: ({instance_id: payment.instance_id,
+               request_id: payment.request_id,
+                ext_auth_success_uri: "http://routerband.ru",
+    	       ext_auth_fail_uri: "http://routerband.ru"}),
+    	dataType: "html",
+    	beforeSend: funcBefore,
+          error: function(jqXHR, textStatus){
+        if(textStatus === 'timeout')
+        {     
+              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML =""; 
+           ajaxerror()
+        }
+    },
+    	success: function(data)
+    	{  
+        
+        document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML ="";
+        string=data
+         string = JSON.parse(string);
+
+            if(string.status=="success")
+                {
+            
+                    clearInterval(interval);
+                    
+                         payRB(summa);
+                }
+            else
+            
+            {
+                
+            }
+            
+        }
+            
+               });
+                   
+
+                   <!-- Предварительная загрузка -->
+    function funcBefore () {
+        	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
+      document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
+        }  
+    }, 3000); 
+      
+      
+      
+      
 }
 </script> 
  

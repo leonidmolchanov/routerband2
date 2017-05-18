@@ -146,7 +146,7 @@ swal({
      <div class="content" >
         <ul class="tabs">
             <li class="tab-link current" data-tab="tabs-1">Модули</li>
-            <li class="tab-link" data-tab="tabs-2">Сервисы</li>
+            <li class="tab-link" data-tab="tabs-2">Приложения</li>
             <li class="tab-link" data-tab="tabs-3">Онлайн-Видео</li>
             <li class="tab-link" data-tab="tabs-4">Соц-сети</li>
             <li class="tab-link" data-tab="tabs-5">Пользователи</li>
@@ -157,53 +157,118 @@ swal({
            <div class="activity-item one-half-responsive">
               <i class="ion-record color-blue-dark"></i>
                 <strong>Модуль "Фильтрации":</strong>
-                <em><font color="#6e6e6e"><span id="stblock">sdasd</span></font></em>
+                <em><font color="#6e6e6e"><span id="layer7"></span></font></em>
             </div> 
             <div class="activity-item one-half-responsive">
               <i class="ion-record color-blue-dark"></i>
                 <strong>Модуль "Списки доступа":</strong>
-                <em><font color="#6e6e6e"><span id="stblock">sdasd</span></font></em>
-            </div> 
+                <em><font color="#6e6e6e"><span id="ALVer"></span></font></em>
+            </div>
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Модуль "Разметка трафика":</strong>
+                <em><font color="#6e6e6e"><span id="mangleVer"></span></font></em>
+            </div>
             <div class="activity-item one-half-responsive">
               <i class="ion-record color-blue-dark"></i>
                 <strong>Модуль "Контроллер канала":</strong>
-                <em><font color="#6e6e6e"><span id="stblock">sdasd</span></font></em>
+                <em><font color="#6e6e6e"><span id="QueTreeVer"></span></font></em>
             </div> 
             <div class="activity-item one-half-responsive">
               <i class="ion-record color-blue-dark"></i>
                 <strong>Модуль "Оптимизатор канала":</strong>
-                <em><font color="#6e6e6e"><span id="stblock">sdasd</span></font></em>
+                <em><font color="#6e6e6e"><span id="QueTypeVer"></span></font></em>
             </div> 
             
         </div>
         <div id="tabs-2" class="tab-content">
-            <div class="tab-elements">
-                    <div class="page-login content full-bottom">
-            <div class="page-login-input">
-            <i class="login-icon ion-person"></i>
-	
-<form id="form1">
-<input type="text" id="zipCode" onkeyup="javascript:mask('zipCode', '+7(000)000-00-00', event);" value="" placeholder="Новый номер телефона">
-    </form>
-        </div>                
-        
-
-        <a href="#"  onclick='telnumber(zipCode.value)' class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i>Сменить</a>
-                </div>
-            </div>
-        </div>
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Skype:</strong>
+                <em>
+                    Приоритет: <select id="Skype" onChange="onSelect(this.selectedIndex, this.id)">
+  <option>Высокий</option>
+  <option>Средний</option>
+  <option>Низкий</option>
+  <option>Очень низкий</option>
+</select></em>
+            </div> 
+        </div> 
         <div id="tabs-3" class="tab-content">
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>YouTube:</strong>
+                <em>
+                    Приоритет: <select id="YouTube" onChange="onSelect(this.selectedIndex, this.id)">
+  <option>Высокий</option>
+  <option>Средний</option>
+  <option>Низкий</option>
+  <option>Очень низкий</option>
+</select></em>
+            </div> 
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>RuTube:</strong>
+                <em>
+                    Приоритет: <select id="RuTube" onChange="onSelect(this.selectedIndex, this.id)">
+  <option>Высокий</option>
+  <option>Средний</option>
+  <option>Низкий</option>
+  <option>Очень низкий</option>
+</select></em>
+            </div> 
+        </div>
+         
+          <div id="tabs-4" class="tab-content">
+         
+             
+          <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Vkontakte:</strong>
+                <em>
+                    Приоритет: <select id="vkontakte" onChange="onSelect(this.selectedIndex, this.id)">
+  <option>Высокий</option>
+  <option>Средний</option>
+  <option>Низкий</option>
+  <option>Очень низкий</option>
+</select></em>
+            </div> 
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Odnoklassniki:</strong>
+                <em>
+                    Приоритет: <select id="odnoklassniki" onChange="onSelect(this.selectedIndex, this.id)">
+  <option>Высокий</option>
+  <option>Средний</option>
+  <option>Низкий</option>
+  <option>Очень низкий</option>
+</select></em>
+            </div> 
+                       
+               
+        </div>
+         
+          <div id="tabs-5" class="tab-content">
             <div class="tab-elements">
                    <div class="page-login content full-bottom">
              <div class="page-login-input">
-            <input type="password" id="psw1" placeholder="Новый пароль" >
-                  <input type="password" id="psw2" placeholder="Новый пароль повторно">
+           В разработке
         </div>                
-        
-
-        <a href="#" onclick='password_act(psw1.value)' class="button button-green button-icon button-full half-top full-bottom"><i class="ion-log-in"></i>Сменить</a>
                 </div>
             </div>
+        </div>
+         
+          <div id="tabs-6" class="tab-content">
+           <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Входящая скорость:</strong>
+                <em><font color="#6e6e6e"><span id="QueDL"></span></font></em>
+            </div> 
+            <div class="activity-item one-half-responsive">
+              <i class="ion-record color-blue-dark"></i>
+                <strong>Исходящая скорость:</strong>
+                <em><font color="#6e6e6e"><span id="QueUP"></span></font></em>
+            </div> 
         </div>
       
     </div>
@@ -211,31 +276,17 @@ swal({
     
 </div>
  
-    <script type="text/javascript">
+    <script type="text/javascript">       
              
-             
-                function email(metod){
-                    
-  if ( metod == '') {
-      msg("Введите Ваш Email !")
-        metod.focus();
-        return;
-    }
-reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-    if (!metod.match(reg)) {
-        msg("Пожалуйста, введите правильный e-mail !")
-       metod="";
-       return
-    }
+
                     
     <!-- Аякс запрос -->
     $.ajax ({
     	url:  select,
     	type: "POST",
         timeout: errortime,
-    	data: ({type: "profile_change",
-    	metod: "email",
-        metod2: metod}),
+    	data: ({type: "sitting_shaper",
+    	metod: "info"}),
     	dataType: "html",
     	beforeSend: funcBefore,
         error: function(jqXHR, textStatus){
@@ -259,100 +310,149 @@ reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-
           msg3("Необходима авторизация");
         }
             <!-- Парсим json -->
+                alert(string)
           string = JSON.parse(string);        
-
         <!-- Набиваем тело ответа -->
-             document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+                document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
     document.getElementById("loading").innerHTML ="";
-       msg("Email-адрес изменен!")
-        }
-    });
-           
+             document.getElementById("layer7").innerHTML ="Установлен. Версия:"+string.layer7;
+            document.getElementById("ALVer").innerHTML ="Установлен. Версия:"+string.ALVer;
+            document.getElementById("mangleVer").innerHTML ="Установлен. Версия:"+string.mangleVer;
+            document.getElementById("QueTreeVer").innerHTML ="Установлен. Версия:"+string.QueTreeVer;
+            document.getElementById("QueTypeVer").innerHTML =string.QueTypeVer;
+           //  document.getElementById("QueDL").innerHTML =string.uplink.download;
+            //  document.getElementById("QueUP").innerHTML =string.uplink.upload;
+            if(string.app.Skype=="false")
+                {
+                    Skype.options[0].text="Недоступно";
+                    Skype.options[0].disabled=true; 
+                    Skype.options[1].disabled=true; 
+                    Skype.options[2].disabled=true; 
+                    Skype.options[3].disabled=true; 
+                }
+            else
+                {
+                    
+                }
+            Skype.options[string.app.Skype].selected=true;  
             
-    <!-- Предварительная загрузка -->
-   function funcBefore () {
-        	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
-      document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
-        }   
-
-             }
-
-             
-             function telnumber(metod){
-if(metod.length< 16)
-    {
-         msg("Пожалуйста, введите правильный номер телефона!")
-metod="";
-       return
-    }
+            
+            if(string.video.YouTube=="false")
+                {
+                    YouTube.options[0].text="Недоступно";
+                    YouTube.options[0].disabled=true; 
+                    YouTube.options[1].disabled=true; 
+                    YouTube.options[2].disabled=true; 
+                    YouTube.options[3].disabled=true; 
+                }
+            else
+                {
+                    
+                }
+            YouTube.options[string.video.YouTube].selected=true;  
+     
+           
          
-    <!-- Аякс запрос -->
-    $.ajax ({
-    	url:  select,
-    	type: "POST",
-        timeout: errortime,
-    	data: ({type: "profile_change",
-    	metod: "telnumber",
-        metod2: metod}),
-    	dataType: "html",
-    	beforeSend: funcBefore,
-        error: function(jqXHR, textStatus){
-        if(textStatus === 'timeout')
-        {     
-              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
-    document.getElementById("loading").innerHTML =""; 
-           ajaxerror()
-        }
-    },
-    	success: function(data)
-    	{
-    	    string=data;
-    <!-- Чистим ответ json -->
-          string=string.trim();
-           <!-- Провкряем сессию -->
-          if(string == "no session")
-          {
-              document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
-    document.getElementById("loading").innerHTML =""; 
-          msg3("Необходима авторизация");
-        }
-            <!-- Парсим json -->
-          string = JSON.parse(string);        
+            if(string.video.RuTube=="false")
+                {
+                    RuTube.options[0].text="Недоступно";
+                    RuTube.options[0].disabled=true; 
+                    RuTube.options[1].disabled=true; 
+                    RuTube.options[2].disabled=true; 
+                    RuTube.options[3].disabled=true; 
+                }
+            else
+                {
+                    
+                }
+            RuTube.options[string.video.RuTube].selected=true;  
+        
 
-        <!-- Набиваем тело ответа -->
-          
-     document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
-    document.getElementById("loading").innerHTML ="";
-            msg("Телефонный номер изменен!")
-        }
-    });
-           
+            if(string.social.vkontakte=="false")
+                {
+                    vkontakte.options[0].text="Недоступно";
+                    vkontakte.options[0].disabled=true; 
+                    vkontakte.options[1].disabled=true; 
+                    vkontakte.options[2].disabled=true; 
+                    vkontakte.options[3].disabled=true; 
+                }
+            else
+                {
+                    
+                }
+            vkontakte.options[string.social.vkontakte].selected=true; 
             
+              if(string.social.odnoklassniki=="false")
+                {
+                    odnoklassniki.options[0].text="Недоступно";
+                    odnoklassniki.options[0].disabled=true; 
+                    odnoklassniki.options[1].disabled=true; 
+                    odnoklassniki.options[2].disabled=true; 
+                    odnoklassniki.options[3].disabled=true; 
+                }
+            else
+                {
+                    
+                }
+          odnoklassniki.options[string.social.odnoklassniki].selected=true; 
+            
+            
+            if (string.uplink.download>1000000)
+                {
+             document.getElementById("QueDL").innerHTML =string.uplink.download/1000000+" Мбит/с";
+  
+                }
+            else if(string.uplink.download<1000000)
+                {
+             document.getElementById("QueDL").innerHTML =string.uplink.download/1000+" Кбит/с";
+  
+                }
+            else
+            {}
+            
+             
+            if (string.uplink.upload>1000000)
+                {
+             document.getElementById("QueUP").innerHTML =string.uplink.upload/1000000+" Мбит/с";
+  
+                }
+            else if(string.uplink.upload<1000000)
+                {
+             document.getElementById("QueUP").innerHTML =string.uplink.upload/1000+" Кбит/с";
+  
+                }
+            else
+            {}
+            
+          }
+    }); 
+        
+        
     <!-- Предварительная загрузка -->
-  function funcBefore () {
+   function funcBefore () {
         	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
       document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
         }   
 
-             }
-
-    
-    
-    
-    function password_act(metod){
-               
-        if(psw1.value==psw2.value)
-            {
+             
+function onSelect(param, param2)
+        {
+            alert(param);
+            alert(param2);
             
-                
-           <!-- Аякс запрос -->
+            
+            
+            
+            
+              <!-- Аякс запрос -->
     $.ajax ({
     	url:  select,
     	type: "POST",
         timeout: errortime,
-    	data: ({type: "profile_change",
-    	metod: "password",
-        metod2: metod}),
+    	data: ({type: "sitting_shaper",
+    	metod: "set",
+        metod2: param,
+        metod3: param2 }),
     	dataType: "html",
     	beforeSend: funcBefore,
         error: function(jqXHR, textStatus){
@@ -376,73 +476,28 @@ metod="";
           msg3("Необходима авторизация");
         }
             <!-- Парсим json -->
+                alert(string)
           string = JSON.parse(string);        
 
         <!-- Набиваем тело ответа -->
-          document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
-    document.getElementById("loading").innerHTML ="";   
-     msg("Пароль изменен!")
-        }
-    });
-           
-            
+              
+            document.getElementById("page-transitions").classList.remove("page-preloader","page-preloader-dark");
+    document.getElementById("loading").innerHTML ="";
+          }
+    }); 
+        
+        
     <!-- Предварительная загрузка -->
    function funcBefore () {
         	document.getElementById("page-transitions").classList.add("page-preloader","page-preloader-dark");
       document.getElementById("loading").innerHTML ="<img align='center' src='images/loading.gif' width='35%' height='35%'>";
-        }   
- 
-      
-                
-                
-                
-            }
-        else
-        {
-            msg("Пароли не совпадают !")
+        }  
+            
+            
         }
+             
+            
    
-             }
-    </script> 
-    
-    
-    
-    <script type="text/javascript">
-  function mask(inputName, mask, evt) {
-    try {
-      var text = document.getElementById(inputName);
-      var value = text.value;
-      // If user pressed DEL or BACK SPACE, clean the value
-      try {
-        var e = (evt.which) ? evt.which : event.keyCode;
-        if ( e == 46 || e == 8 ) {
-          text.value = "";
-          return;
-        }
-      } catch (e1) {}
- 
-      var literalPattern=/[0\*]/;
-      var numberPattern=/[0-9]/;
-      var newValue = "";
-      for (var vId = 0, mId = 0 ; mId < mask.length ; ) {
-        if (mId >= value.length)
-          break;
-        // Number expected but got a different value, store only the valid portion
-        if (mask[mId] == '0' && value[vId].match(numberPattern) == null) {
-          break;
-        }
-        // Found a literal
-        while (mask[mId].match(literalPattern) == null) {
-          if (value[vId] == mask[mId])
-            break;
-        newValue += mask[mId++];
-      }
-      newValue += value[vId++];
-      mId++;
-    }
-    text.value = newValue;
-  } catch(e) {}
-}
-</script>   
+    </script>  
 </div>
 </body>
